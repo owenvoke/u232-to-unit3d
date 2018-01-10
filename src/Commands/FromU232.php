@@ -24,7 +24,9 @@ class FromU232 extends Command
                             {--database= : The database to select from.}
                             {--username= : The database user.}
                             {--password= : The database password.}
-                            {--prefix= : The database hostname or IP.}';
+                            {--prefix= : The database hostname or IP.}
+                            {--ignore-users : Ignore the users table when importing.}
+                            {--ignore-torrents : Ignore the torrents table when importing.}';
 
     /**
      * The console command description.
