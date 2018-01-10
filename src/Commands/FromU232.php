@@ -71,8 +71,17 @@ class FromU232 extends Command
 
         $database = DB::connection('imports');
 
-        Imports::importTable($database, 'User', 'users', User::class);
-        Imports::importTable($database, 'Torrent', 'torrents', Torrent::class);
+        if (!$this->option('ignore-users')) {
+            Imports::importTable($database, 'User', 'users', User::class);
+        } else {
+            $this->output->note('Ignoring users table.');
+        }
+
+        if (!$this->option('ignore-torrents')) {
+            Imports::importTable($database, 'Torrent', 'torrents', Torrent::class);
+        } else {
+            $this->output->note('Ignoring torrents table.');
+        }
     }
 
     /**
