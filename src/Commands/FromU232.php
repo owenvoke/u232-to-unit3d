@@ -24,7 +24,9 @@ class FromU232 extends Command
                             {--database= : The database to select from.}
                             {--username= : The database user.}
                             {--password= : The database password.}
-                            {--prefix= : The database hostname or IP.}';
+                            {--prefix= : The database hostname or IP.}
+                            {--ignore-users : Ignore the users table when importing.}
+                            {--ignore-torrents : Ignore the torrents table when importing.}';
 
     /**
      * The console command description.
@@ -69,8 +71,17 @@ class FromU232 extends Command
 
         $database = DB::connection('imports');
 
-        Imports::importTable($database, 'User', 'users', User::class);
-        Imports::importTable($database, 'Torrent', 'torrents', Torrent::class);
+        if (!$this->option('ignore-users')) {
+            Imports::importTable($database, 'User', 'users', User::class);
+        } else {
+            $this->output->note('Ignoring users table.');
+        }
+
+        if (!$this->option('ignore-torrents')) {
+            Imports::importTable($database, 'Torrent', 'torrents', Torrent::class);
+        } else {
+            $this->output->note('Ignoring torrents table.');
+        }
     }
 
     /**
