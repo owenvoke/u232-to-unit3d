@@ -9,19 +9,11 @@
 
 An artisan package to import a [U-232] database into [UNIT3D].
 
-## Structure
-
-```
-src/
-tests/
-vendor/
-```
-
 ## Install
 
 Via Composer
 
-``` bash
+```bash
 $ composer require pxgamer/u232-to-unit3d --dev
 ```
 
@@ -34,7 +26,7 @@ To install, just:
 
 For instructions on usage, run:
 
-```sh
+```bash
 php artisan unit3d:from-u232 --help
 ```
 
@@ -44,17 +36,13 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
-``` bash
+```bash
 $ composer test
 ```
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
-
-## Security
-
-If you discover any security related issues, please email owzie123@gmail.com instead of using the issue tracker.
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) and [CODE_OF_CONDUCT](.github/CODE_OF_CONDUCT.md) for details.
 
 ## Credits
 
@@ -71,15 +59,15 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-version]: https://img.shields.io/packagist/v/pxgamer/u232-to-unit3d.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/pxgamer/u232-to-unit3d/master.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/HDInnovations/u232-to-unit3d/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/114423312/shield
-[ico-code-quality]: https://img.shields.io/codecov/c/github/pxgamer/u232-to-unit3d.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/codecov/c/github/HDInnovations/u232-to-unit3d.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/pxgamer/u232-to-unit3d.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/pxgamer/u232-to-unit3d
-[link-travis]: https://travis-ci.org/pxgamer/u232-to-unit3d
+[link-travis]: https://travis-ci.org/HDInnovations/u232-to-unit3d
 [link-styleci]: https://styleci.io/repos/114423312
-[link-code-quality]: https://codecov.io/gh/pxgamer/u232-to-unit3d
+[link-code-quality]: https://codecov.io/gh/HDInnovations/u232-to-unit3d
 [link-downloads]: https://packagist.org/packages/pxgamer/u232-to-unit3d
 [link-author]: https://github.com/pxgamer
 [link-contributors]: ../../contributors

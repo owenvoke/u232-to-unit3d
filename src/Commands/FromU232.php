@@ -2,15 +2,12 @@
 
 namespace pxgamer\U232ToUnit3d\Commands;
 
-use App\Torrent;
 use App\User;
+use App\Torrent;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use pxgamer\U232ToUnit3d\Functionality\Imports;
 
-/**
- * Class FromU232.
- */
 class FromU232 extends Command
 {
     /**
@@ -58,26 +55,26 @@ class FromU232 extends Command
 
         config([
             'database.connections.imports' => [
-                'driver'    => $this->option('driver'),
-                'host'      => $this->option('host'),
-                'database'  => $this->option('database'),
-                'username'  => $this->option('username'),
-                'password'  => $this->option('password'),
-                'prefix'    => $this->option('prefix'),
-                'charset'   => 'utf8',
+                'driver' => $this->option('driver'),
+                'host' => $this->option('host'),
+                'database' => $this->option('database'),
+                'username' => $this->option('username'),
+                'password' => $this->option('password'),
+                'prefix' => $this->option('prefix'),
+                'charset' => 'utf8',
                 'collation' => 'utf8_unicode_ci',
             ],
         ]);
 
         $database = DB::connection('imports');
 
-        if (!$this->option('ignore-users')) {
+        if (! $this->option('ignore-users')) {
             Imports::importTable($database, 'User', 'users', User::class);
         } else {
             $this->output->note('Ignoring users table.');
         }
 
-        if (!$this->option('ignore-torrents')) {
+        if (! $this->option('ignore-torrents')) {
             Imports::importTable($database, 'Torrent', 'torrents', Torrent::class);
         } else {
             $this->output->note('Ignoring torrents table.');
@@ -85,7 +82,7 @@ class FromU232 extends Command
     }
 
     /**
-     * @param array $options
+     * @param  array  $options
      */
     public function checkRequired(array $options)
     {
@@ -96,7 +93,7 @@ class FromU232 extends Command
         ];
 
         foreach ($requiredOptions as $option) {
-            if (!key_exists($option, $options) || !$options[$option]) {
+            if (! array_key_exists($option, $options) || ! $options[$option]) {
                 throw new \InvalidArgumentException('Option `'.$option.'` not provided.');
             }
         }

@@ -5,9 +5,6 @@ namespace pxgamer\U232ToUnit3d\Functionality;
 use Carbon\Carbon;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class MappingTest.
- */
 class MappingTest extends TestCase
 {
     const TEST_DATE_STRING = '2017-10-15 06:06:06';
