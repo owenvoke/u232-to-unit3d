@@ -9,19 +9,11 @@
 
 An artisan package to import a [U-232] database into [UNIT3D].
 
-## Structure
-
-```
-src/
-tests/
-vendor/
-```
-
 ## Install
 
 Via Composer
 
-``` bash
+```bash
 $ composer require pxgamer/u232-to-unit3d --dev
 ```
 
@@ -34,7 +26,7 @@ To install, just:
 
 For instructions on usage, run:
 
-```sh
+```bash
 php artisan unit3d:from-u232 --help
 ```
 
@@ -44,17 +36,13 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
-``` bash
+```bash
 $ composer test
 ```
 
 ## Contributing
 
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) and [CODE_OF_CONDUCT](.github/CODE_OF_CONDUCT.md) for details.
-
-## Security
-
-If you discover any security related issues, please email owzie123@gmail.com instead of using the issue tracker.
 
 ## Credits
 
