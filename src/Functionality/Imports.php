@@ -5,16 +5,13 @@ namespace pxgamer\U232ToUnit3d\Functionality;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class Imports.
- */
 class Imports
 {
     /**
-     * @param Connection $database
-     * @param string $type
-     * @param string $oldTable
-     * @param string $modelName
+     * @param  Connection  $database
+     * @param  string  $type
+     * @param  string  $oldTable
+     * @param  string  $modelName
      *
      * @return int
      *
@@ -24,7 +21,7 @@ class Imports
     {
         $results = 0;
 
-        if (!$database->getSchemaBuilder()->hasTable($oldTable)) {
+        if (! $database->getSchemaBuilder()->hasTable($oldTable)) {
             throw new \ErrorException('`'.$oldTable.'` table missing.');
         }
 
@@ -42,8 +39,8 @@ class Imports
     }
 
     /**
-     * @param string $model
-     * @param array $data
+     * @param  string  $model
+     * @param  array  $data
      * @return bool
      */
     private static function import(string $model, array $data = []): bool

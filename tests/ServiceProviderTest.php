@@ -5,9 +5,6 @@ namespace pxgamer\U232ToUnit3d\Functionality;
 use Orchestra\Testbench\TestCase;
 use pxgamer\U232ToUnit3d\ServiceProvider;
 
-/**
- * Class ServiceProviderTest.
- */
 class ServiceProviderTest extends TestCase
 {
     /**
@@ -22,7 +19,7 @@ class ServiceProviderTest extends TestCase
     }
 
     /**
-     * @param \Illuminate\Foundation\Application $app
+     * @param  \Illuminate\Foundation\Application $app
      *
      * @return array
      */
