@@ -33,7 +33,7 @@ class Mapping
             'downloaded' => $data->downloaded ?? 0,
             'title' => $data->title ?? null,
             'image' => $data->avatar ?? null,
-            'created_at' => Carbon::createFromTimestamp(strtotime($data->added)),
+            'created_at' => Carbon::createFromTimeString($data->added),
         ];
     }
 
@@ -51,7 +51,7 @@ class Mapping
             'seeders' => $data->seeders ?? 0,
             'leechers' => $data->leechers ?? 0,
             'num_files' => $data->numfiles ?? 0,
-            'created_at' => Carbon::createFromTimestamp(strtotime($data->added)),
+            'created_at' => Carbon::createFromTimeString($data->added),
         ];
     }
 }
