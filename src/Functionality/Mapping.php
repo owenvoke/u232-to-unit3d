@@ -2,25 +2,26 @@
 
 namespace pxgamer\U232ToUnit3d\Functionality;
 
+use stdClass;
 use Carbon\Carbon;
 
 class Mapping
 {
     /**
      * @param  string  $type
-     * @param  \stdClass  $data
+     * @param  stdClass  $data
      * @return array
      */
-    public static function map(string $type, \stdClass $data): array
+    public static function map(string $type, stdClass $data): array
     {
         return self::{'map'.$type}($data);
     }
 
     /**
-     * @param  \stdClass  $data
+     * @param  stdClass  $data
      * @return array
      */
-    public static function mapUser(\stdClass $data): array
+    public static function mapUser(stdClass $data): array
     {
         return [
             'username' => $data->username,
@@ -32,15 +33,15 @@ class Mapping
             'downloaded' => $data->downloaded ?? 0,
             'title' => $data->title ?? null,
             'image' => $data->avatar ?? null,
-            'created_at' => Carbon::createFromTimestamp(strtotime($data->added)),
+            'created_at' => Carbon::createFromTimeString($data->added),
         ];
     }
 
     /**
-     * @param  \stdClass  $data
+     * @param  stdClass  $data
      * @return array
      */
-    public static function mapTorrent(\stdClass $data): array
+    public static function mapTorrent(stdClass $data): array
     {
         return [
             'info_hash' => $data->info_hash,
@@ -50,7 +51,7 @@ class Mapping
             'seeders' => $data->seeders ?? 0,
             'leechers' => $data->leechers ?? 0,
             'num_files' => $data->numfiles ?? 0,
-            'created_at' => Carbon::createFromTimestamp(strtotime($data->added)),
+            'created_at' => Carbon::createFromTimeString($data->added),
         ];
     }
 }

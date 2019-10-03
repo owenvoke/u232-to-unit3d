@@ -4,52 +4,36 @@ namespace pxgamer\U232ToUnit3d\Commands;
 
 use App\User;
 use App\Torrent;
+use ErrorException;
+use InvalidArgumentException;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use pxgamer\U232ToUnit3d\Functionality\Imports;
 
 class FromU232 extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
+    /** {@inheritdoc} */
     protected $signature = 'unit3d:from-u232
-                            {--driver=mysql : The driver type to use (mysql, sqlsrv, etc.).}
-                            {--host=localhost : The hostname or IP.}
-                            {--database= : The database to select from.}
-                            {--username= : The database user.}
-                            {--password= : The database password.}
-                            {--prefix= : The database hostname or IP.}
-                            {--ignore-users : Ignore the users table when importing.}
-                            {--ignore-torrents : Ignore the torrents table when importing.}';
+                            {--driver=mysql : The driver type to use (mysql, sqlsrv, etc.)}
+                            {--host=localhost : The hostname or IP}
+                            {--database= : The database to select from}
+                            {--username= : The database user}
+                            {--password= : The database password}
+                            {--prefix= : The database hostname or IP}
+                            {--ignore-users : Ignore the users table when importing}
+                            {--ignore-torrents : Ignore the torrents table when importing}';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Import data from an U-232 instance to UNIT3D.';
-
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    /** {@inheritdoc} */
+    protected $description = 'Import data from an U-232 instance to UNIT3D';
 
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      *
-     * @throws \ErrorException
+     * @throws ErrorException
      */
-    public function handle()
+    public function handle(): void
     {
         $this->checkRequired($this->options());
 
@@ -68,23 +52,11 @@ class FromU232 extends Command
 
         $database = DB::connection('imports');
 
-        if (! $this->option('ignore-users')) {
-            Imports::importTable($database, 'User', 'users', User::class);
-        } else {
-            $this->output->note('Ignoring users table.');
-        }
-
-        if (! $this->option('ignore-torrents')) {
-            Imports::importTable($database, 'Torrent', 'torrents', Torrent::class);
-        } else {
-            $this->output->note('Ignoring torrents table.');
-        }
+        $this->importUsers($database);
+        $this->importTorrents($database);
     }
 
-    /**
-     * @param  array  $options
-     */
-    public function checkRequired(array $options)
+    private function checkRequired(array $options): void
     {
         $requiredOptions = [
             'database',
@@ -94,8 +66,40 @@ class FromU232 extends Command
 
         foreach ($requiredOptions as $option) {
             if (! array_key_exists($option, $options) || ! $options[$option]) {
-                throw new \InvalidArgumentException('Option `'.$option.'` not provided.');
+                throw new InvalidArgumentException('Option `'.$option.'` not provided');
             }
         }
+    }
+
+    /**
+     * @param  ConnectionInterface  $database
+     *
+     * @throws ErrorException
+     */
+    private function importUsers(ConnectionInterface $database): void
+    {
+        if ($this->option('ignore-users')) {
+            $this->output->note('Ignoring users table');
+
+            return;
+        }
+
+        Imports::importTable($database, 'User', 'users', User::class);
+    }
+
+    /**
+     * @param  ConnectionInterface  $database
+     *
+     * @throws ErrorException
+     */
+    private function importTorrents(ConnectionInterface $database): void
+    {
+        if ($this->option('ignore-torrents')) {
+            $this->output->note('Ignoring torrents table');
+
+            return;
+        }
+
+        Imports::importTable($database, 'Torrent', 'torrents', Torrent::class);
     }
 }

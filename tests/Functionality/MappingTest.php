@@ -4,6 +4,7 @@ namespace pxgamer\U232ToUnit3d\Tests\Functionality;
 
 use Carbon\Carbon;
 use Orchestra\Testbench\TestCase;
+use pxgamer\U232ToUnit3d\Functionality\Mapping;
 
 class MappingTest extends TestCase
 {

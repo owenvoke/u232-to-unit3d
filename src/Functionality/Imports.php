@@ -2,6 +2,7 @@
 
 namespace pxgamer\U232ToUnit3d\Functionality;
 
+use ErrorException;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,14 +16,14 @@ class Imports
      *
      * @return int
      *
-     * @throws \ErrorException
+     * @throws ErrorException
      */
     public static function importTable(Connection $database, string $type, string $oldTable, string $modelName): int
     {
         $results = 0;
 
         if (! $database->getSchemaBuilder()->hasTable($oldTable)) {
-            throw new \ErrorException('`'.$oldTable.'` table missing.');
+            throw new ErrorException('`'.$oldTable.'` table missing.');
         }
 
         $oldData = $database->query()->select()->from($oldTable)->get();
