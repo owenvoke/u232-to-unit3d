@@ -52,20 +52,11 @@ class FromU232 extends Command
 
         $database = DB::connection('imports');
 
-        if (! $this->option('ignore-users')) {
-            Imports::importTable($database, 'User', 'users', User::class);
-        } else {
-            $this->output->note('Ignoring users table');
-        }
-
-        if (! $this->option('ignore-torrents')) {
-            Imports::importTable($database, 'Torrent', 'torrents', Torrent::class);
-        } else {
-            $this->output->note('Ignoring torrents table');
-        }
+        $this->importUsers($database);
+        $this->importTorrents($database);
     }
 
-    public function checkRequired(array $options): void
+    private function checkRequired(array $options): void
     {
         $requiredOptions = [
             'database',
@@ -78,5 +69,37 @@ class FromU232 extends Command
                 throw new InvalidArgumentException('Option `'.$option.'` not provided');
             }
         }
+    }
+
+    /**
+     * @param  ConnectionInterface  $database
+     *
+     * @throws ErrorException
+     */
+    private function importUsers(ConnectionInterface $database): void
+    {
+        if ($this->option('ignore-users')) {
+            $this->output->note('Ignoring users table');
+
+            return;
+        }
+
+        Imports::importTable($database, 'User', 'users', User::class);
+    }
+
+    /**
+     * @param  ConnectionInterface  $database
+     *
+     * @throws ErrorException
+     */
+    private function importTorrents(ConnectionInterface $database): void
+    {
+        if ($this->option('ignore-torrents')) {
+            $this->output->note('Ignoring torrents table');
+
+            return;
+        }
+
+        Imports::importTable($database, 'Torrent', 'torrents', Torrent::class);
     }
 }
