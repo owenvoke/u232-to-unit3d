@@ -17,7 +17,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "pxgamer\\U232ToUnit3d\\": "tests"
+            "pxgamer\\U232ToUnit3d\\Tests\\": "tests"
         }
     },
     "scripts": {
