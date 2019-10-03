@@ -1,6 +1,6 @@
 <?php
 
-namespace pxgamer\U232ToUnit3d\Functionality;
+namespace pxgamer\U232ToUnit3d\Tests\Functionality;
 
 use Carbon\Carbon;
 use Orchestra\Testbench\TestCase;
