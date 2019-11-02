@@ -2,9 +2,9 @@
 
 namespace pxgamer\U232ToUnit3d\Commands;
 
-use App\User;
-use App\Torrent;
 use ErrorException;
+use App\Models\User;
+use App\Models\Torrent;
 use InvalidArgumentException;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
