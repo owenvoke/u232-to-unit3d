@@ -1,10 +1,9 @@
-# u232-to-unit3d
+# U232 to UNIT3D
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
 [![Style CI][ico-styleci]][link-styleci]
-[![Code Coverage][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 An artisan package to import a [U-232] database into [UNIT3D].
@@ -45,7 +44,7 @@ Please see [CONTRIBUTING](.github/CONTRIBUTING.md) and [CODE_OF_CONDUCT](.github
 
 ## Credits
 
-- [pxgamer][link-author]
+- [Owen Voke][link-author]
 - [All Contributors][link-contributors]
 
 ## License
@@ -60,13 +59,11 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/HDInnovations/u232-to-unit3d/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/114423312/shield
-[ico-code-quality]: https://img.shields.io/codecov/c/github/HDInnovations/u232-to-unit3d.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/pxgamer/u232-to-unit3d.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/pxgamer/u232-to-unit3d
 [link-travis]: https://travis-ci.org/HDInnovations/u232-to-unit3d
 [link-styleci]: https://styleci.io/repos/114423312
-[link-code-quality]: https://codecov.io/gh/HDInnovations/u232-to-unit3d
 [link-downloads]: https://packagist.org/packages/pxgamer/u232-to-unit3d
-[link-author]: https://github.com/pxgamer
+[link-author]: https://github.com/owenvoke
 [link-contributors]: ../../contributors
