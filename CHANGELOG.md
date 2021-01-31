@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## [v1.2.2] - 2021-01-31
+
+### Fixed
+- Fix missing import ([9cf422c](https://github.com/HDInnovations/u232-to-unit3d/commit/9cf422cefc7d0d0811f98bc7c4e6c09c9309e938))
+
+## [v1.2.1] - 2019-11-02
+
+### Changed
+- Fix order of model imports
+
 ## [v1.2.0] - 2019-10-03
 
 ### Changed
