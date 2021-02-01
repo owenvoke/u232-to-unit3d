@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## [v1.2.3] - 2021-02-01
+
+### Fixed
+- Add fallback for old U-232 versions ([9326af8](https://github.com/HDInnovations/u232-to-unit3d/commit/9326af8bad5bcb870b1074f4cb47714a6da41c03))
+
 ## [v1.2.2] - 2021-01-31
 
 ### Fixed
