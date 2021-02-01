@@ -26,7 +26,7 @@ class Mapping
         return [
             'username' => $data->username,
             'password' => $data->passhash ?? null,
-            'passkey' => $data->torrent_pass ?? null,
+            'passkey' => $data->torrent_pass ?? $data->passkey ?? null,
             'group_id' => $data->class ?? 1,
             'email' => $data->email ?? null,
             'uploaded' => $data->uploaded ?? 0,
