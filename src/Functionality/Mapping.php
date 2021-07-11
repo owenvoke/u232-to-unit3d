@@ -23,17 +23,25 @@ class Mapping
      */
     public static function mapUser(stdClass $data): array
     {
-        return [
+        return [            
             'username' => $data->username,
             'password' => $data->passhash ?? null,
-            'passkey' => $data->torrent_pass ?? $data->passkey ?? null,
-            'group_id' => $data->class ?? 1,
+            'passkey' => $data->torrent_pass ?? md5(uniqid().time().microtime()),
+            'rsskey' => md5(uniqid().time().microtime().$data->passhash),
+            'group_id' => 3, // Default Member Group
             'email' => $data->email ?? null,
             'uploaded' => $data->uploaded ?? 0,
             'downloaded' => $data->downloaded ?? 0,
-            'title' => $data->title ?? null,
+            'seedbonus' => str_replace('-', '', $data->seedbonus) ?? 0,
             'image' => $data->avatar ?? null,
+            'title' => $data->title ?? null,
+            'about' => $data->about ?? null,
+            'signature' => $data->signature ?? null,
+            'active' => 1,
+            'invites' => $data->invites ?? 0,
+            'last_login' => Carbon::now(),
             'created_at' => date('Y/m/d H:i:s', $data->added),
+            'updated_at' => Carbon::now(),
         ];
     }
 
