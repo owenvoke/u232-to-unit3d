@@ -2,8 +2,8 @@
 
 namespace pxgamer\U232ToUnit3d\Functionality;
 
-use stdClass;
 use Carbon\Carbon;
+use stdClass;
 
 class Mapping
 {
@@ -23,7 +23,7 @@ class Mapping
      */
     public static function mapUser(stdClass $data): array
     {
-        return [            
+        return [
             'username' => $data->username,
             'password' => $data->passhash ?? null,
             'passkey' => $data->torrent_pass ?? md5(uniqid().time().microtime()),

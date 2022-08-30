@@ -13,7 +13,6 @@ class Imports
      * @param  string  $type
      * @param  string  $oldTable
      * @param  string  $modelName
-     *
      * @return int
      *
      * @throws ErrorException
