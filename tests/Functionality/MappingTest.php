@@ -8,7 +8,7 @@ use pxgamer\U232ToUnit3d\Functionality\Mapping;
 
 class MappingTest extends TestCase
 {
-    private const TEST_DATE_STRING = '2017-10-15 06:06:06';
+    private const TEST_DATE_STRING = '2017/10/15 06:06:06';
     private const TEST_STRING = 'SpaghettiTest';
     private const TEST_HASH = 'f87b9feb33b6744f0bd1cb53b6fc1f23';
 

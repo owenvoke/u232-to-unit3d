@@ -23,7 +23,7 @@ class Mapping
      */
     public static function mapUser(stdClass $data): array
     {
-        return [            
+        return [
             'username' => $data->username,
             'password' => $data->passhash ?? null,
             'passkey' => $data->torrent_pass ?? md5(uniqid().time().microtime()),
@@ -32,7 +32,7 @@ class Mapping
             'email' => $data->email ?? null,
             'uploaded' => $data->uploaded ?? 0,
             'downloaded' => $data->downloaded ?? 0,
-            'seedbonus' => str_replace('-', '', $data->seedbonus) ?? 0,
+            'seedbonus' => isset($data->seedbonus) ? str_replace('-', '', $data->seedbonus) : 0,
             'image' => $data->avatar ?? null,
             'title' => $data->title ?? null,
             'about' => $data->about ?? null,
@@ -40,7 +40,7 @@ class Mapping
             'active' => 1,
             'invites' => $data->invites ?? 0,
             'last_login' => Carbon::now(),
-            'created_at' => date('Y/m/d H:i:s', $data->added),
+            'created_at' => Carbon::createFromFormat('Y/m/d H:i:s', (string) $data->added),
             'updated_at' => Carbon::now(),
         ];
     }
@@ -59,7 +59,7 @@ class Mapping
             'seeders' => $data->seeders ?? 0,
             'leechers' => $data->leechers ?? 0,
             'num_files' => $data->numfiles ?? 0,
-            'created_at' => date('Y/m/d H:i:s', $data->added),
+            'created_at' => Carbon::createFromFormat('Y/m/d H:i:s', (string) $data->added),
         ];
     }
 }
